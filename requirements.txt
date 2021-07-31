@@ -1,0 +1,6 @@
+peewee~=3.14.4
+opencv-python~=4.5.3.56
+Pillow~=8.3.1
+requests~=2.26.0
+bs4~=0.0.1
+beautifulsoup4~=4.9.3
