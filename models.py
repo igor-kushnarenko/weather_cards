@@ -1,7 +1,7 @@
 from peewee import *
 
 user = 'postgres'
-db_name = 'weather_db'
+db_name = 'weather_cards'
 
 db = PostgresqlDatabase(db_name, user=user, host='localhost')
 
