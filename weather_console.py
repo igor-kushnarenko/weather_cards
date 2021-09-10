@@ -49,6 +49,3 @@ parser_weather_date.set_defaults(func=manager.choice_dates_forecast)
 
 args = parser.parse_args()
 args.func()
-
-# в help стоит дообавлять больше информации, желательно с примерами ввода
-# Добавьте в description аргументы, которые вы вводите для проверки работы программы

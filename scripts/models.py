@@ -20,5 +20,5 @@ class Weather(BaseModel):
     clouds = CharField(max_length=50)
 
     class Meta:
-        db_table = "weather"
+        db_table = "weather_cards"
         order_by = ('date',)

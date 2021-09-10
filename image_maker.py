@@ -6,11 +6,11 @@ from PIL import Image
 
 class ImageMaker:
     """Класс принимает запись из БД и формирует изображение карточки с прогнозом погоды."""
-    card_template_path = 'python_snippets/external_data/probe.jpg'
-    sun_template_path = 'python_snippets/external_data/weather_img/sun.jpg'
-    cloud_template_path = 'python_snippets/external_data/weather_img/cloud.jpg'
-    snow_template_path = 'python_snippets/external_data/weather_img/snow.jpg'
-    rain_template_path = 'python_snippets/external_data/weather_img/rain.jpg'
+    card_template_path = 'static/external_data/probe.jpg'
+    sun_template_path = 'static/external_data/weather_img/sun.jpg'
+    cloud_template_path = 'static/external_data/weather_img/cloud.jpg'
+    snow_template_path = 'static/external_data/weather_img/snow.jpg'
+    rain_template_path = 'static/external_data/weather_img/rain.jpg'
 
     def __init__(self, db_row):
         self.db_row = db_row
@@ -29,6 +29,7 @@ class ImageMaker:
         temp_max = self.db_row.temp_max
         temp_min = self.db_row.temp_min
         clouds = self.db_row.clouds
+        print(clouds)
 
         color = str
         logo = str
@@ -37,15 +38,15 @@ class ImageMaker:
             sun_img = cv2.imread(self.sun_template_path, cv2.IMREAD_COLOR)
             color = colors_dict['yellow']
             logo = sun_img
-        elif 'облачность' in clouds:
+        elif 'облачность' or 'Облачно' in clouds:
             cloud_img = cv2.imread(self.cloud_template_path, cv2.IMREAD_COLOR)
             color = colors_dict['grey']
             logo = cloud_img
-        elif ['Снег', 'снег'] in clouds:
+        elif 'Снег' or 'снег' in clouds:
             snow_img = cv2.imread(self.snow_template_path, cv2.IMREAD_COLOR)
             color = colors_dict['blue']
             logo = snow_img
-        elif ['Дождь', 'дождь'] in clouds:
+        elif 'Дождь' or 'дождь' in clouds:
             rain_img = cv2.imread(self.rain_template_path, cv2.IMREAD_COLOR)
             color = colors_dict['dark_blue']
             logo = rain_img

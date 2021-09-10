@@ -1,4 +1,4 @@
-from models import Weather
+from scripts.models import Weather
 
 
 class DatabaseUpdater:
@@ -23,9 +23,7 @@ class DatabaseUpdater:
                 update={})
                      .execute())
 
-    def read_db(self, date_from, date_to):  # попробуйте уточнить этот метод, чтобы он принимал два параметра
-        # и возвращает данные между двумя этими датами
-        # можно что-то подобное использовать .where(Weather.date.between(date_from, date_to))
+    def read_db(self, date_from, date_to):
         """Возвращает объект базы"""
         return Weather.select().where(Weather.date.between(date_from, date_to))
 

@@ -1,9 +1,9 @@
 import datetime
 
-from database_updater import DatabaseUpdater
+from scripts.database_updater import DatabaseUpdater
 from image_maker import ImageMaker
-from weather_maker import WeatherMaker
-from models import Weather
+from scripts.weather_maker import WeatherMaker
+from scripts.models import Weather
 
 
 class Manager:
